@@ -1,9 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
-.w-50vw{
-    width: 50vw;
+.w-23px {
+  width: 23px;
+}
+.h-23px {
+  height: 23px;
+}
+.w-50vw {
+  width: 50vw;
+}
+.mat-dialog-fulscreen {
+  position: absolute !important;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vw;
+  min-width: 100vw !important;
+  min-height: 100vh !important;
+  .mdc-dialog__surface {
+    border-radius: 0px;
+  }
 }
 
-
-.recipes-header{
-    height: 60px;
+.recipes-header {
+  height: 60px;
+}
+.recipe-veiw-detail-img {
+  height: 450px;
+  min-height: 450px;
+  background-size: cover;
+  background-position: center;
+}
+.card-dish-img {
+  height: 350px;
+  min-height: 350px;
+  background-size: cover;
+  background-position: center;
+}
+.card-text{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
