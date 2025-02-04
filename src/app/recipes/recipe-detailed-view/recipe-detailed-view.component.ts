@@ -1,6 +1,5 @@
-import { Component, Inject, inject } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+
 import {
   MatDialog,
   MAT_DIALOG_DATA,
@@ -9,7 +8,7 @@ import {
 
 @Component({
   selector: 'app-recipe-detailed-view',
-  imports: [MatButtonModule, MatDialogModule],
+  standalone: false,
   templateUrl: './recipe-detailed-view.component.html',
   styleUrl: './recipe-detailed-view.component.scss',
 })

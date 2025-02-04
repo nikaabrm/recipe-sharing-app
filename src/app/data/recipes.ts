@@ -1,4 +1,4 @@
-export const Recipes = [
+export const RECIPES_ARR = [
   {
     id: '1',
     title: 'Lobiani',
@@ -116,5 +116,85 @@ Bring a large pot of salted water to a gentle boil. Drop in the khinkali one by 
 
 Step 5: Serve
 Drain and serve hot, sprinkled with black pepper. Hold the twisted top, take a bite, sip the juicy broth, and enjoy! (Don't eat the top—it’s just a handle!)`,
+  },
+  {
+    id: '4',
+    title: 'Sushi',
+    img: 'https://static.toiimg.com/photo/105698192/105698192.jpg',
+    descriptionShort: `
+Sushi is a traditional Japanese dish consisting of vinegared rice combined with various ingredients such as raw or cooked seafood, vegetables, and seaweed (nori). It comes in different forms, including maki (rolled sushi), nigiri (hand-pressed rice with toppings), and sashimi (sliced raw fish without rice). Sushi is often served with soy sauce, wasabi, and pickled ginger. It is known for its fresh flavors, delicate presentation, and cultural significance in Japanese cuisine`,
+    ingredientNames: [
+      'sushi rice',
+      'water',
+      'rice vinegar',
+      'Salt',
+      'sugar',
+    ],
+    ingredientQuantities: ['200g', '100g', '20g', '20g', '1tsp'],
+    cookingInstructions: ` 
+      Step 1: Prepare the Sushi Rice
+      Rinse the Rice – Wash 2 cups of sushi rice under cold water until the water runs clear.
+      Cook the Rice – In a rice cooker or pot, cook the rice with 2 ½ cups of water. If using a pot, bring it to a boil, then cover and simmer on low for 15 minutes. Remove from heat and let it rest for 10 minutes.
+      Season the Rice – In a small bowl, mix ¼ cup rice vinegar, 1 tbsp sugar, and ½ tsp salt. Heat until the sugar dissolves. Gently fold the mixture into the cooked rice and let it cool to room temperature.
+      Step 2: Prepare Fillings & Toppings
+      Slice the Fish & Vegetables – Cut raw fish (like tuna or salmon) into thin slices. Slice vegetables like cucumber, avocado, or carrots into thin strips.
+      Prepare Other Ingredients – If using shrimp, boil and peel them. If using tamagoyaki (Japanese omelet), slice it into thin strips.
+      Step 3: Assemble the Sushi
+      For Maki Rolls (Nori Rolls)
+      Place a sheet of nori (shiny side down) on a bamboo sushi mat.
+      Spread a thin layer of sushi rice over the nori, leaving 1 inch (2.5 cm) at the top edge.
+      Arrange the fillings (fish, avocado, cucumber, etc.) in a line near the bottom edge.
+      Using the bamboo mat, roll tightly from the bottom, pressing gently. Seal the edge with a little water.
+      Cut into 6-8 even pieces with a sharp, wet knife.
+      For Nigiri (Hand-Pressed Sushi)
+      Wet your hands and shape a small oval ball of sushi rice (about 1 tbsp).
+      Place a slice of fish on top and press gently to secure.
+      Optional: Brush with soy sauce or add a tiny bit of wasabi under the fish.
+      Step 4: Serve & Enjoy
+      Arrange sushi on a plate and garnish with sesame seeds or sriracha mayo (optional).
+      Serve with soy sauce, wasabi, and pickled ginger.
+      Enjoy fresh! 😊🍣
+    `,
+  },
+  {
+    id: '5',
+    title: 'Paella',
+    img: 'https://res.cloudinary.com/tienda-com/image/upload/f_auto/q_auto/c_fill,w_742/dpr_2.0/v1/recipes/mixed-seafood-paella',
+    descriptionShort: `
+      Paella is a traditional Spanish rice dish originating from Valencia, known for its vibrant flavors and colorful presentation. It is typically cooked in a wide, shallow pan and features saffron-infused rice, which gives it a golden hue. Paella can include a variety of ingredients such as seafood (shrimp, mussels, squid), chicken, rabbit, chorizo, and vegetables. The dish is famous for its "socarrat"—the crispy, caramelized rice layer at the bottom. It is a symbol of Spanish cuisine and is best enjoyed freshly cooked with friends and family.
+    `,
+    ingredientNames: [
+      'Short-grain rice',
+      'Chicken or seafood broth',
+      'Saffron threads',
+      'Smoked paprika',
+      'Black pepper',
+      'Salt'
+    ],
+    ingredientQuantities: ['2cps', '2cps', '2tsp', '1tsp', '1tsp'],
+    cookingInstructions: ` 
+      Step 1: Prepare the Sushi Rice
+      Rinse the Rice – Wash 2 cups of sushi rice under cold water until the water runs clear.
+      Cook the Rice – In a rice cooker or pot, cook the rice with 2 ½ cups of water. If using a pot, bring it to a boil, then cover and simmer on low for 15 minutes. Remove from heat and let it rest for 10 minutes.
+      Season the Rice – In a small bowl, mix ¼ cup rice vinegar, 1 tbsp sugar, and ½ tsp salt. Heat until the sugar dissolves. Gently fold the mixture into the cooked rice and let it cool to room temperature.
+      Step 2: Prepare Fillings & Toppings
+      Slice the Fish & Vegetables – Cut raw fish (like tuna or salmon) into thin slices. Slice vegetables like cucumber, avocado, or carrots into thin strips.
+      Prepare Other Ingredients – If using shrimp, boil and peel them. If using tamagoyaki (Japanese omelet), slice it into thin strips.
+      Step 3: Assemble the Sushi
+      For Maki Rolls (Nori Rolls)
+      Place a sheet of nori (shiny side down) on a bamboo sushi mat.
+      Spread a thin layer of sushi rice over the nori, leaving 1 inch (2.5 cm) at the top edge.
+      Arrange the fillings (fish, avocado, cucumber, etc.) in a line near the bottom edge.
+      Using the bamboo mat, roll tightly from the bottom, pressing gently. Seal the edge with a little water.
+      Cut into 6-8 even pieces with a sharp, wet knife.
+      For Nigiri (Hand-Pressed Sushi)
+      Wet your hands and shape a small oval ball of sushi rice (about 1 tbsp).
+      Place a slice of fish on top and press gently to secure.
+      Optional: Brush with soy sauce or add a tiny bit of wasabi under the fish.
+      Step 4: Serve & Enjoy
+      Arrange sushi on a plate and garnish with sesame seeds or sriracha mayo (optional).
+      Serve with soy sauce, wasabi, and pickled ginger.
+      Enjoy fresh! 😊🍣
+    `,
   },
 ];

@@ -30,18 +30,27 @@
   background-size: cover;
   background-position: center;
 }
-.card-dish-img {
-  height: 350px;
-  min-height: 350px;
-  background-size: cover;
-  background-position: center;
-}
-.card-text{
+
+.receipe-card {
+  &:hover {
+    -webkit-box-shadow: 0 0 10px gray;
+    box-shadow: 0 0 10px gray;
+    transition: all 0.15s linear;
+    cursor: pointer;
+  }
+  .card-dish-img {
+    height: 350px;
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+  }
+  .card-text {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     line-clamp: 3;
-    -webkit-box-orient: vertical;  
+    -webkit-box-orient: vertical;
     overflow: hidden;
+  }
 }
 html,
 body {
