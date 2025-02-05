@@ -20,9 +20,16 @@
     border-radius: 0px;
   }
 }
+.top-0 {
+  top: 0px;
+}
+.left-0 {
+  left: 0px;
+}
 
 .recipes-header {
   height: 60px;
+  min-height: 60px;
 }
 .recipe-veiw-detail-img {
   height: 450px;
@@ -59,4 +66,11 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+app-recipes,
+app-recipe-detailed-view,
+app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

@@ -1,11 +1,8 @@
-<app-recipes-header></app-recipes-header>
-<div
-  class="w-100 bg-light flex-grow-1 d-flex flex-wrap py-5"
->
+<div class="w-100 bg-light flex-grow-1 d-flex flex-wrap py-5 overflow-auto">
   @for (recipe of recipes; track recipe.id) {
   <div class="col-4 px-4">
-    <div class="card receipe-card mb-3" (click)="openDialog(recipe)">
-      <h5 class="card-title py-3 text-center mb-0">{{ recipe.title }}</h5>
+    <a (click)="navigateToDetailedView(recipe.id)" class="card receipe-card mb-3 text-decoration-none" >
+      <h5 class="card-title py-3 text-center mb-0 link-success">{{ recipe.title }}</h5>
       <div
         class="card-dish-img w-100"
         [style.background-image]="'url(' + recipe.img + ')'"
@@ -15,16 +12,10 @@
           {{ recipe.descriptionShort }}
         </p>
         <div class="w-100 d-flex justify-content-center">
-          <button
-            href="#"
-            class="btn btn-primary mx-auto"
-          >
-            Full Recipe
-          </button>
+          <button href="#" class="btn btn-primary mx-auto">Full Recipe</button>
         </div>
       </div>
-    </div>
+    </a>
   </div>
-
   }
 </div>

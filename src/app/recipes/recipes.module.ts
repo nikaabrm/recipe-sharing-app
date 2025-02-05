@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecipesComponent } from './recipes.component';
-import { RecipesHeaderComponent } from './recipes-header/recipes-header.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+ 
 import { RecipeDetailedViewComponent } from './recipe-detailed-view/recipe-detailed-view.component';
+import { RouterModule } from '@angular/router';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 
 
 @NgModule({
-  declarations: [RecipesComponent,RecipesHeaderComponent,RecipeDetailedViewComponent],
+  declarations: [RecipesComponent,RecipeDetailedViewComponent,AddRecipeComponent],
   exports: [RecipesComponent],
   imports: [
     CommonModule,
-    MatDialogModule,
-    MatButtonModule
+    RouterModule 
   ]
 })
 export class RecipesModule { }

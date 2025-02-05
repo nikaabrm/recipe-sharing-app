@@ -1,56 +1,74 @@
-<div
-  class="w-100 border-bottom recipes-header d-flex align-items-center px-2 w-100 bg-light"
->
-  <button
-    mat-dialog-close
-    class="py-2 col-2 h-100 border-0 text-center fs-5 col-2 border-end text-decoration-none link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class="bi bi-arrow-return-left w-23px h-23px"
-      viewBox="0 0 16 16"
-    >
-      <path
-        fill-rule="evenodd"
-        d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"
-      />
-    </svg>
-    <span class="px-2">Back to Recipes</span>
-  </button>
-  <div class="col-8 d-flex justify-content-center fs-5">Recipe Details</div>
-</div>
-
-<div class="d-flex flex-column py-4 overflow-auto">
-  <div class="h5 w-100 text-center text-info">{{ data.title }}</div>
+<div class="recipe-detailed-view position-absolute top-0 left-0 d-flex flex-column h-100">
   <div
-    class="w-100 recipe-veiw-detail-img"
-    [style.background-image]="'url(' + data.img + ')'"
-  ></div>
-
-  <div class="h5 text-warning text-center py-3">Ingredients</div>
-  <div class="d-flex justify-content-center col-8 mx-auto">
-    <div class="col">
-      @for (ingredientName of data.ingredientNames; track ingredientName) {
-      <div class="border-bottom w-100 text-center py-1 my-1">
-        {{ ingredientName }}
-      </div>
-      }
+    class="w-100 border-bottom recipes-header d-flex align-items-center px-2 w-100 bg-light"
+  >
+    <button
+      routerLink="/"
+      class="py-2 col-2 h-100 border-0 text-center fs-5 col-2 border-end text-decoration-none link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-arrow-return-left w-23px h-23px"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"
+        />
+      </svg>
+      <a class="px-2 text-decoration-none text-success">Back to Recipes</a>
+    </button>
+    <div class="col-8 d-flex justify-content-center fs-5 link-success">
+      {{ activeRecipe?.title }}
     </div>
-    <div class="col">
-      @for (ingredientQuantity of data.ingredientQuantities; track
-      ingredientQuantity) {
-      <div class="border-bottom w-100 text-center py-1 my-1">
-        {{ ingredientQuantity }}
+    <div class="col-2"></div>
+  </div>
+
+  @if(typeof activeRecipe === 'undefined'){
+
+  <div
+    class="w-100 h-100 py-5 d-flex justify-content-center align-items-center h-100"
+  >
+    <div class="spinner-border text-warning p-4" role="status"></div>
+  </div>
+
+  } @else if (activeRecipe) {
+
+  <div class="d-flex flex-column flex-grow-1 pb-4 h-100 overflow-auto">
+    <div
+      class="w-100 recipe-veiw-detail-img"
+      [style.background-image]="'url(' + activeRecipe.img + ')'"
+    ></div>
+
+    <div class="h5 text-warning text-center py-3">Ingredients</div>
+
+    <div class="d-flex justify-content-center col-8 mx-auto">
+      <div class="col">
+        @for (ingredientName of activeRecipe.ingredientNames; track $index) {
+        <div class="border-bottom w-100 text-center py-1 my-1">
+          {{ ingredientName }}
+        </div>
+        }
       </div>
-      }
+      <div class="col">
+        @for (ingredientQuantity of activeRecipe.ingredientQuantities; track
+        $index) {
+        <div class="border-bottom w-100 text-center py-1 my-1">
+          {{ ingredientQuantity }}
+        </div>
+        }
+      </div>
+    </div>
+
+    <div class="h5 text-warning text-center py-3">Cooking Instructions</div>
+
+    <div class="d-flex justify-content-center col-8 mx-auto">
+      {{ activeRecipe.cookingInstructions }}
     </div>
   </div>
-  <div class="h5 text-warning text-center py-3">Cooking Instructions</div>
 
-  <div class="d-flex justify-content-center col-8 mx-auto">
-    {{ data.cookingInstructions }}
-  </div>
+  }
 </div>

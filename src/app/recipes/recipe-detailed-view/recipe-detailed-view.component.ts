@@ -1,10 +1,7 @@
 import { Component, Inject } from '@angular/core';
-
-import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { RECIPES_ARR } from '../../data/recipes';
+import { type Recipe } from '../../models/recipe.model';
 
 @Component({
   selector: 'app-recipe-detailed-view',
@@ -13,13 +10,22 @@ import {
   styleUrl: './recipe-detailed-view.component.scss',
 })
 export class RecipeDetailedViewComponent {
-  // readonly dialog = inject(MatDialog);
-  // @Inject(MAT_DIALOG_DATA) public data: any;
+  recipes = RECIPES_ARR;
+  recipeId = '';
+  activeRecipe: Recipe | undefined;
 
-  constructor(
-    public dialogRef: MatDialogRef<RecipeDetailedViewComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    console.log(this.data, 'aqa', this.data);
+  constructor(private activatedRoute: ActivatedRoute) {
+
+    this.activatedRoute.params.subscribe((res) => {
+     let recipeLocal : Recipe | undefined;
+      console.log(res['id']);
+      this.recipeId = res['id'];
+      recipeLocal = this.recipes.find((recipe) => recipe.id === this.recipeId);
+       if(this.recipes.find((recipe) => recipe.id === this.recipeId)){
+          this.activeRecipe = recipeLocal;
+       }
+
+    });
+
   }
 }
