@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RECIPES_ARR } from '../../data/recipes';
+import { RECIPES_ARR } from '../../database/recipes';
 import { type Recipe } from '../../models/recipe.model';
 
 @Component({

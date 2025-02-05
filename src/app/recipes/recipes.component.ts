@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RECIPES_ARR } from '../data/recipes';
+import { RECIPES_ARR } from '../database/recipes';
 import { Recipe } from '../models/recipe.model';
 import { Router } from '@angular/router';
 
