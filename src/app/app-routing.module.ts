@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeDetailedViewComponent } from './recipes/recipe-detailed-view/recipe-detailed-view.component';
-import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
+import { RecipeForm } from './recipes/recipe-form/recipe-form.component';
 
 export const routes: Routes = [
   {
@@ -12,14 +12,17 @@ export const routes: Routes = [
   },
 
   {
-    path: 'detailed/:id',
+    path: 'detail/:id',
     component: RecipeDetailedViewComponent,
   },
   {
     path: 'add-recipe',
-    component: AddRecipeComponent,
+    component: RecipeForm,
   },
-  
+  {
+    path: 'edit/:id',
+    component: RecipeForm,
+  },
   {
     path: '**',
     component: RecipesComponent,

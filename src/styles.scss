@@ -74,3 +74,37 @@ app-root {
   flex-direction: column;
   height: 100%;
 }
+app-recipes-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.alert-success{
+  transition: all 0.15s linear;
+  opacity: 0;
+  &.active{
+    opacity: 1;
+  }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// ng-submitted ng-untouched ng-pristine ng-invalid 
+// ng-submitted ng-untouched ng-pristine ng-invalid
+
+// form.ng-submitted.ng-invalid{
+//   .ng-invalid{
+//     border-color: #dc3545;
+//     &:focus{
+//       box-shadow: 0 0 0 .2rem rgba(220,53,69,.25);
+//     }
+//   }
+// }
+.ng-invalid.ng-touched{
+  border-color: #dc3545;
+  &:focus{
+    box-shadow: 0 0 0 .2rem rgba(220,53,69,.25);
+  }
+}
+.w-100px{
+  width: 100px;
+}

@@ -1,6 +1,8 @@
-<div class="recipe-detailed-view position-absolute top-0 left-0 d-flex flex-column h-100">
+
+
+<div class="recipe-detailed-view position-absolute top-0 left-0 d-flex flex-column w-100 h-100">
   <div
-    class="w-100 border-bottom recipes-header d-flex align-items-center px-2 w-100 bg-light"
+    class="w-100 border-bottom recipes-header d-flex align-items-center  w-100 bg-light"
   >
     <button
       routerLink="/"
@@ -22,12 +24,15 @@
       <a class="px-2 text-decoration-none text-success">Back to Recipes</a>
     </button>
     <div class="col-8 d-flex justify-content-center fs-5 link-success">
-      {{ activeRecipe?.title }}
+       {{ recipe?.title }}
     </div>
-    <div class="col-2"></div>
+    <div class="col-2 px-3 d-flex justify-content-between">
+      <button href="#" class="btn btn-success w-100px" (click)="onRecipeEdit()">Edit</button>
+      <button href="#" class="btn btn-danger w-100px" (click)="onRecipeDelete()">Delete</button>
+    </div>
   </div>
 
-  @if(typeof activeRecipe === 'undefined'){
+  @if(!recipe){
 
   <div
     class="w-100 h-100 py-5 d-flex justify-content-center align-items-center h-100"
@@ -35,38 +40,38 @@
     <div class="spinner-border text-warning p-4" role="status"></div>
   </div>
 
-  } @else if (activeRecipe) {
+  } @else if (recipe) {
 
   <div class="d-flex flex-column flex-grow-1 pb-4 h-100 overflow-auto">
     <div
       class="w-100 recipe-veiw-detail-img"
-      [style.background-image]="'url(' + activeRecipe.img + ')'"
+      [style.background-image]="'url(' + recipe.image + ')'"
     ></div>
 
     <div class="h5 text-warning text-center py-3">Ingredients</div>
 
+    @for (ingredient of recipe.ingredients; track $index) {
+
     <div class="d-flex justify-content-center col-8 mx-auto">
       <div class="col">
-        @for (ingredientName of activeRecipe.ingredientNames; track $index) {
         <div class="border-bottom w-100 text-center py-1 my-1">
-          {{ ingredientName }}
+          {{ ingredient.name }}
         </div>
-        }
       </div>
       <div class="col">
-        @for (ingredientQuantity of activeRecipe.ingredientQuantities; track
-        $index) {
+      
         <div class="border-bottom w-100 text-center py-1 my-1">
-          {{ ingredientQuantity }}
+          {{ ingredient.amount }}
+          {{ingredient.dimension}}
         </div>
-        }
       </div>
     </div>
+  }
 
     <div class="h5 text-warning text-center py-3">Cooking Instructions</div>
 
     <div class="d-flex justify-content-center col-8 mx-auto">
-      {{ activeRecipe.cookingInstructions }}
+      {{ recipe.description }}
     </div>
   </div>
 

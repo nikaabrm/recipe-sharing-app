@@ -1,0 +1,94 @@
+<form class="w-50 mx-auto py-5 form" [formGroup]="recipeForm" (ngSubmit)="saveRecipe()" >
+  <div class="d-flex">
+    <div class="form-group pb-2 col-6 px-2">
+      <label for="title">Title</label>
+      <input
+        formControlName="title"
+        type="email"
+        class="form-control"
+        id="title"
+      />
+    </div>
+    <div  *ngIf="titleControl?.invalid && (titleControl?.dirty || titleControl?.touched)">title aqaa</div>
+    <div class="form-group pb-2 col-6 px-2">
+        <label for="formFile" class="form-label mb-0">Upload an Image</label>
+        <input class="form-control" type="file" id="formFile" (change)="handleImageUpload($event)">
+      </div>
+
+      <div *ngIf="base64Image">
+        <p>Preview:</p>
+        <img [src]="base64Image" alt="Uploaded Image" style="max-width: 200px;">
+      </div>
+    
+  </div>
+  <div class="w-100 d-flex flex-column">
+    <div formArrayName="ingredients">
+      <label>Ingredients:</label>
+      <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i">
+        <input type="text" formControlName="name" placeholder="Ingredient Name">
+        <input type="text" formControlName="amount" placeholder="Amount">
+        <input type="text" formControlName="dimension" placeholder="kg/g/pc">
+        <button type="button" (click)="removeIngredient(i)" *ngIf="ingredients.length > 1">Remove</button>
+        <div *ngIf="ingredient.get('name')?.invalid && ingredient.get('name')?.touched">
+          Name is required.
+        </div>
+        <div *ngIf="ingredient.get('quantity')?.invalid && ingredient.get('quantity')?.touched">
+          Quantity is required and must be a number.
+        </div>
+      </div>
+    </div>
+
+    <!-- @for (ingredientInput of ingredientInputs; track $index) {
+        <div class="d-flex w-100" formGroupName="ingredientAndQuantity">
+            <div class="form-group pb-2 col-6 px-2">
+              <label for="exampleFormControlInput1">Ingredient Name</label>
+              <input
+                formControlName="ingredient"
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+              />
+            </div>
+            <div class="form-group pb-2 col-6 px-2">
+              <label for="exampleFormControlInput1">Quantity</label>
+              <input
+                formControlName="quantity"
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+              />
+            </div>
+          </div>
+    } -->
+
+    <button class="mx-auto btn btn-info text-white d-flex align-items-center px-3" (click)="addIngredient()">
+        <span class="px-3">Add Ingredient</span>
+        <i class="bi bi-patch-plus fs-5"></i>
+    </button>
+  </div>
+  <div class="form-group pb-2">
+    <label for="exampleFormControlInput1">Short Description</label>
+    <input
+      formControlName="shortDescription"
+      type="email"
+      class="form-control"
+      id="exampleFormControlInput1"
+    />
+  </div>
+ 
+  <div class="form-group pb-2">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea
+     formControlName="description"
+      class="form-control"
+      id="exampleFormControlTextarea1"
+      rows="3"
+    ></textarea>
+  </div>
+  <button class="btn btn-success" >Submit</button>
+</form>
+
+
+  <div [class.active]="recipeAddedSuccessfully" class="alert alert-success w-50 mx-auto text-center" role="alert">
+    Recipe Added
+  </div>

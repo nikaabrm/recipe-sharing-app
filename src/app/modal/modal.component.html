@@ -1,0 +1,21 @@
+<div
+  class="w-100 h-100 d-flex flex-column align-items-center justify-content-between pt-4 pb-2"
+>
+ @if(!data){
+  <div class="fs-5 pb-5">Delete Recipe?</div>
+
+  <div class="w-100 d-flex justify-content-between px-5 pb-3">
+    <button mat-button mat-dialog-close>No</button>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="onClose()">Yes</button>
+  </div>
+
+ } @else if(data){
+  <div class="fs-5 py-5">{{data?.title}}</div>
+ 
+ }
+
+
+ 
+
+
+</div>

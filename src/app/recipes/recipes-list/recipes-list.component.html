@@ -1,0 +1,24 @@
+@for (recipe of recipes; track recipe.id) {
+    <div class="col-4 px-4">
+      <a
+        (click)="navigateToDetailedRecipe(recipe.id)"
+        class="card receipe-card mb-3 text-decoration-none"
+      >
+        <h5 class="card-title py-3 text-center mb-0 link-success">
+          {{ recipe.title }}
+        </h5>
+        <div
+          class="card-dish-img w-100"
+          [style.background-image]="'url(' + recipe.image + ')'"
+        ></div>
+        <div class="card-body">
+          <p class="card-text">
+            {{ recipe.descriptionShort }}
+          </p>
+          <div class="w-100 d-flex justify-content-center">
+            <button href="#" class="btn btn-primary mx-auto">View Full Recipe</button>
+          </div>
+        </div>
+      </a>
+    </div>
+    } 

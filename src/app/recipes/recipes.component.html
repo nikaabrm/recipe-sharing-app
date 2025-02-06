@@ -1,21 +1,41 @@
 <div class="w-100 bg-light flex-grow-1 d-flex flex-wrap py-5 overflow-auto">
-  @for (recipe of recipes; track recipe.id) {
-  <div class="col-4 px-4">
-    <a (click)="navigateToDetailedView(recipe.id)" class="card receipe-card mb-3 text-decoration-none" >
-      <h5 class="card-title py-3 text-center mb-0 link-success">{{ recipe.title }}</h5>
-      <div
-        class="card-dish-img w-100"
-        [style.background-image]="'url(' + recipe.img + ')'"
-      ></div>
-      <div class="card-body">
-        <p class="card-text">
-          {{ recipe.descriptionShort }}
-        </p>
-        <div class="w-100 d-flex justify-content-center">
-          <button href="#" class="btn btn-primary mx-auto">Full Recipe</button>
-        </div>
-      </div>
-    </a>
+
+  <div class="d-flex my-2 my-lg-0">
+    <input 
+  type="text" 
+  [(ngModel)]="searchQuery" 
+  [disabled]="isSearching"
+  (input)="onSearch()" 
+  placeholder="Search by food name" 
+  />
+  </div>
+
+  @if(isSearching || initialLoading){
+    <div>
+        <div
+      class="w-100 h-100 py-5 d-flex justify-content-center align-items-center h-100"
+    >
+      <div class="spinner-border text-warning p-4" role="status"></div>
+    </div>
+    </div>
+  }
+  
+
+  @if(!recipes.length && !searchQuery && !isSearching && !initialLoading){
+      Empty message
+
+  } 
+  
+  @if(recipes.length) {
+  <app-recipes-list
+    [recipes]="recipes"
+    (recipeId)="navigateToDetailedView($event)"
+  ></app-recipes-list>
+
+  }
+  @if(!recipes.length && searchQuery) {
+    <div>
+    Can not Found
   </div>
   }
 </div>

@@ -1,9 +1,14 @@
 export interface Recipe {
-  id: string;
+  id: string; // json-server requires to be string
   title: string;
-  img: string;
+  image: string;
   descriptionShort: string;
-  ingredientNames: string[],
-  ingredientQuantities: string[],
-  cookingInstructions: string,
+  ingredients:Ingredient[];
+  description: string;
+}
+
+export interface Ingredient{
+  name:string;
+  amount:number;
+  dimension:string;
 }
